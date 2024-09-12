@@ -1,0 +1,184 @@
+.page-title {
+    color: var(--dark-color);
+    margin: 2rem 0 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.catalogo-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2rem;
+}
+
+/* Azioni sui filtri */
+.filtri-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+/* Gruppo badge dei filtri attivi */
+.filtri-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.filtri-sidebar {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+.filtro-group { margin-bottom: 1.5rem; }
+.filtro-select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: white;
+}
+.checkbox-group {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem;
+    background: #fafafa;
+}
+/* Item checkbox dentro la sidebar */
+.checkbox-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Contatore accanto al bottone confronto */
+.confronto-counter {
+    background: white;
+    color: var(--success-color);
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 0.2rem 0.6rem;
+    margin-left: 0.5rem;
+    font-size: 0.85rem;
+}
+
+/* Contenuto del catalogo (colonna principale) */
+.catalogo-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.filtri-attivi {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+}
+
+
+/* Link per rimuovere tutti i filtri */
+.rimuovi-filtri {
+    color: var(--danger-color, #d9534f);
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+.rimuovi-filtri:hover {
+    text-decoration: underline;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+.confronto-button {
+    background: var(--success-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+}
+.confronto-button:hover { background: #00695c; }
+
+/* Nascondi elemento (usato per l’indicatore utente loggato) */
+.d-none {
+    display: none !important;
+}
+
+@media (max-width: 1023px) and (min-width: 769px) {
+    /* CATALOGO TABLET */
+    .catalogo-layout {
+        grid-template-columns: 250px 1fr;
+        gap: 1.5rem;
+    }
+
+    .checkbox-group {
+        max-height: 150px;
+    }
+}
+
+/* Intestazione pagina */
+.page-header h1 {
+    color: var(--dark-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .filtri-badges {
+        justify-content: center;
+    }
+
+    .filtri-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filtri-actions .btn {
+        text-align: center;
+        width: 100%;
+    }
+
+    .catalogo-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .filtri-sidebar {
+        order: 2;
+    }
+
+    .catalogo-content {
+        order: 1;
+    }
+
+    .checkbox-group {
+        max-height: 120px;
+    }
+}
+
+/* No data message */
+.no-data {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary-color);
+}

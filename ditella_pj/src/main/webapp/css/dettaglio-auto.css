@@ -1,0 +1,373 @@
+
+.dettaglio-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin: 2rem 0;
+}
+
+.auto-info {
+    flex: 1;
+    min-width: 0; /* Previene overflow */
+}
+
+.allestimenti-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Immagine auto */
+.auto-immagine {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+/* Titolo auto */
+.auto-titolo {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+/* Specifiche auto */
+.auto-specifiche {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1.5rem;
+}
+
+.specifica-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.specifica-item:last-child {
+    border-bottom: none;
+}
+
+.specifica-label {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.specifica-valore {
+    color: var(--dark-color);
+    font-weight: 500;
+}
+
+.prezzo-base {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Sezione allestimenti */
+.allestimenti-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.allestimenti-titolo {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+}
+
+/* Opzioni allestimento */
+.allestimento-option {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--light-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.allestimento-option:hover {
+    background: #e8f4f8;
+    border-color: var(--primary-color);
+}
+
+.allestimento-option input[type="radio"] {
+    margin-right: 0.75rem;
+    transform: scale(1.2);
+}
+
+.allestimento-option input[type="radio"]:checked + .allestimento-label {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.allestimento-option:has(input:checked) {
+    background: #e8f4f8;
+    border-color: var(--primary-color);
+}
+
+.allestimento-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.allestimento-prezzo {
+    color: var(--success-color);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.allestimento-descrizione {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+/* Prezzo totale */
+.prezzo-totale {
+    background: #f8f9fa;
+    border: 2px solid var(--success-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.prezzo-totale-label {
+    font-size: 1rem;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.prezzo-totale-valore {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--success-color);
+}
+
+/* Pulsanti azioni */
+.azioni-container {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-azione {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+    padding: 0.875rem 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-garage {
+    background: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-garage:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-acquista {
+    background: var(--success-color);
+    border: 2px solid var(--success-color);
+}
+
+.btn-acquista:hover {
+    background: #00695c;
+    border-color: #00695c;
+    transform: translateY(-2px);
+}
+
+.btn-confronto {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-confronto:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-accedi {
+    background: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-accedi:hover {
+    background: #5a5a5a;
+    border-color: #5a5a5a;
+}
+
+/* Messaggio nessun allestimento */
+.no-allestimenti {
+    text-align: center;
+    padding: 2rem;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1023px) {
+    .dettaglio-container {
+        gap: 1.5rem;
+    }
+
+    .auto-titolo {
+        font-size: 1.8rem;
+    }
+
+    .allestimenti-section {
+        min-width: 280px;
+    }
+
+    .azioni-container {
+        gap: 0.75rem;
+    }
+
+    .btn-azione {
+        min-width: 120px;
+        padding: 0.75rem 0.75rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .dettaglio-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .allestimenti-section {
+        min-width: auto;
+    }
+
+    .auto-titolo {
+        font-size: 1.6rem;
+    }
+
+    .auto-specifiche {
+        padding: 1rem;
+    }
+
+    .specifica-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .allestimenti-card {
+        padding: 1rem;
+    }
+
+    .allestimenti-titolo {
+        font-size: 1.3rem;
+    }
+
+    .allestimento-option {
+        padding: 0.75rem;
+    }
+
+    .allestimento-label {
+        font-size: 1rem;
+    }
+
+    .prezzo-totale {
+        padding: 0.75rem;
+    }
+
+    .prezzo-totale-valore {
+        font-size: 1.3rem;
+    }
+
+    .azioni-container {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .btn-azione {
+        flex: none;
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+/* Mobile piccolo */
+@media (max-width: 480px) {
+    .auto-titolo {
+        font-size: 1.4rem;
+    }
+
+    .auto-specifiche,
+    .allestimenti-card {
+        padding: 0.75rem;
+    }
+
+    .allestimento-option {
+        padding: 0.5rem;
+    }
+
+    .allestimento-label {
+        font-size: 0.95rem;
+    }
+
+    .allestimento-descrizione {
+        font-size: 0.85rem;
+    }
+
+    .prezzo-totale-valore {
+        font-size: 1.2rem;
+    }
+
+    .btn-azione {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITÀ E FOCUS
+   ======================================== */
+.allestimento-option:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.allestimento-option input[type="radio"]:focus {
+    outline: none;
+}
+
+/* Stati per screen reader */
+.allestimento-option input[type="radio"]:checked + .allestimento-label::after {
+    content: " (selezionato)";
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}

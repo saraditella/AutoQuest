@@ -1,0 +1,444 @@
+/* ========================================
+   AREA UTENTE CSS - PROGETTO UNIVERSITARIO
+   Complementa il CSS base esistente
+   ======================================== */
+
+/* ========================================
+   USER INFO CARD
+   ======================================== */
+.user-info {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: white;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.user-info::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.user-info h1 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.user-info p {
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 2;
+    font-size: 1rem;
+}
+
+.user-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Role badges */
+.role-badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+}
+
+.role-admin {
+    background: #ffc107;
+    color: #000;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+.role-user {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ========================================
+   MESSAGGI DI ERRORE
+   ======================================== */
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #dc3545;
+}
+
+/* ========================================
+   SEZIONE ADMIN
+   ======================================== */
+.admin-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.admin-section::before {
+    content: '👑';
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    background: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.admin-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.admin-section > p {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Statistiche admin */
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.admin-stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    border-top: 3px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.admin-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.admin-stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.admin-stat-label {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Bottone dashboard */
+.admin-dashboard-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.admin-dashboard-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    color: white;
+}
+
+/* ========================================
+   SEZIONI CONTENUTO
+   ======================================== */
+.section {
+    margin-bottom: 2rem;
+}
+
+.section h2 {
+    color: var(--dark-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+/* ========================================
+   TABELLE PERSONALIZZATE
+   ======================================== */
+.section table {
+    margin-top: 1rem;
+}
+
+.section table th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.section table td {
+    vertical-align: middle;
+}
+
+.section table tr:hover {
+    background: #f8f9fa;
+}
+
+/* ========================================
+   LINK E BOTTONI PERSONALIZZATI
+   ======================================== */
+.link-marchio {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.link-marchio:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Bottoni specifici */
+.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-ghost:hover {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-primary {
+    background: var(--success-color);
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+    background: #00695c;
+    transform: translateY(-1px);
+}
+
+/* ========================================
+   UTILITY CLASSES AGGIUNTIVE
+   ======================================== */
+.d-inline {
+    display: inline;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.gap-1 {
+    gap: 0.5rem;
+}
+
+.gap-2 {
+    gap: 1rem;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 769px) {
+    .admin-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .user-info h1 {
+        font-size: 1.6rem;
+    }
+
+    .admin-stat-number {
+        font-size: 2.2rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .user-info h1 {
+        font-size: 1.4rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .role-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .admin-stat-card {
+        padding: 1rem;
+    }
+
+    .admin-stat-number {
+        font-size: 2rem;
+    }
+
+    .admin-dashboard-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .section h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Tabelle responsive */
+    .section table {
+        font-size: 0.9rem;
+    }
+
+    .section table th,
+    .section table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    /* Stack bottoni su mobile */
+    .d-flex.gap-1 {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .d-flex.gap-1 .btn,
+    .d-flex.gap-1 .link-marchio {
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Mobile piccolo */
+@media (max-width: 480px) {
+    .user-info {
+        padding: 1rem;
+    }
+
+    .user-info h1 {
+        font-size: 1.2rem;
+    }
+
+    .admin-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .admin-stat-number {
+        font-size: 1.8rem;
+    }
+
+    .admin-stat-label {
+        font-size: 0.8rem;
+    }
+
+    /* Nascondi alcune colonne su schermi molto piccoli */
+    .section table th:nth-child(n+4),
+    .section table td:nth-child(n+4) {
+        display: none;
+    }
+
+    /* Mostra solo le prime 3 colonne */
+    .section table th:nth-child(4),
+    .section table td:nth-child(4) {
+        display: table-cell;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .admin-section::before,
+    .btn,
+    .btn-ghost,
+    .btn-primary,
+    .link-marchio {
+        display: none !important;
+    }
+
+    .user-info {
+        background: white !important;
+        color: black !important;
+        border: 1px solid #ccc;
+    }
+
+    .admin-section {
+        background: white !important;
+        border: 1px solid #ccc;
+    }
+
+    .admin-stat-card {
+        border: 1px solid #ccc;
+        box-shadow: none !important;
+    }
+}

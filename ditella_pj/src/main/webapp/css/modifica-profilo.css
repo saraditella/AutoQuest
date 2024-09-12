@@ -1,0 +1,521 @@
+
+.form-container {
+    max-width: 520px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    box-shadow: var(--shadow);
+    border-top: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(74, 144, 226, 0.03), transparent);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.form-container > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Header del form */
+.form-container h2 {
+    color: var(--dark-color);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.form-container h2::before {
+    content: '✏️';
+    font-size: 1.3rem;
+}
+
+/* ========================================
+   FORM GROUPS
+   ======================================== */
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.form-group label::before {
+    font-size: 0.9rem;
+}
+
+/* Icone specifiche per i campi */
+.form-group:nth-child(2) label::before {
+    content: '👤';
+}
+
+.form-group:nth-child(3) label::before {
+    content: '👥';
+}
+
+.form-group:nth-child(4) label::before {
+    content: '📧';
+}
+
+/* Input styling */
+.form-group input[type="text"],
+.form-group input[type="email"] {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background: white;
+    position: relative;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    transform: translateY(-1px);
+    background: #fafafa;
+}
+
+/* Stati di validazione dinamica */
+.form-group input.valid {
+    border-color: var(--success-color) !important;
+    background: #f8fff9;
+}
+
+.form-group input.invalid {
+    border-color: #dc3545 !important;
+    background: #fff8f8;
+}
+
+/* ========================================
+   VALIDATION INFO
+   ======================================== */
+.validation-info {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    margin-top: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #17a2b8;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.validation-info::before {
+    content: '💡';
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   MESSAGGI DI FEEDBACK
+   ======================================== */
+.error {
+    color: #721c24;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: var(--border-radius);
+    padding: 0.875rem;
+    margin-bottom: 1.25rem;
+    border-left: 4px solid #dc3545;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.error::before {
+    content: '⚠️';
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.success {
+    color: #155724;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: var(--border-radius);
+    padding: 0.875rem;
+    margin-bottom: 1.25rem;
+    border-left: 4px solid #28a745;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.success::before {
+    content: '✅';
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   BOTTONI
+   ======================================== */
+.form-group:last-child {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.875rem 1.75rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(74, 144, 226, 0.3);
+    min-width: 150px;
+}
+
+.btn::before {
+    content: '💾';
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(107, 107, 107, 0.3);
+    min-width: 150px;
+}
+
+.btn-secondary::before {
+    content: '↩️';
+    font-size: 1rem;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+    text-decoration: none;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(107, 107, 107, 0.4);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* ========================================
+   CARATTERI COUNTER (per campi con maxlength)
+   ======================================== */
+.form-group {
+    position: relative;
+}
+
+.form-group input[maxlength] + .validation-info::after {
+    content: attr(data-counter);
+    position: absolute;
+    right: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+}
+
+/* ========================================
+   EFFETTI E ANIMAZIONI
+   ======================================== */
+.form-container {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Feedback visivo per validazione in tempo reale */
+.form-group input.validating {
+    animation: pulse 0.3s ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Effetto per messaggi */
+.error {
+    animation: shake 0.5s ease-in-out;
+}
+
+.success {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    75% { transform: translateX(3px); }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1023px) and (min-width: 769px) {
+    .form-container {
+        max-width: 480px;
+        margin: 2.5rem auto;
+        padding: 1.75rem;
+    }
+
+    .form-container h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .form-container {
+        max-width: 95%;
+        margin: 1.5rem auto;
+        padding: 1.5rem;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        padding: 1rem;
+        font-size: 16px; /* Previene zoom su iOS */
+    }
+
+    .form-group:last-child {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+    }
+
+    .btn,
+    .btn-secondary {
+        width: 100%;
+        min-width: auto;
+        padding: 1rem;
+        justify-content: center;
+    }
+
+    .validation-info {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
+
+/* Mobile piccolo */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .form-container {
+        max-width: 100%;
+        margin: 1rem auto;
+        padding: 1.25rem;
+    }
+
+    .form-container h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        padding: 0.875rem;
+    }
+
+    .btn,
+    .btn-secondary {
+        padding: 0.875rem;
+        font-size: 0.95rem;
+    }
+
+    .validation-info {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.5rem;
+    }
+
+    .error,
+    .success {
+        padding: 0.75rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITÀ
+   ======================================== */
+.form-group input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.btn:focus,
+.btn-secondary:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        border-width: 3px;
+    }
+
+    .btn,
+    .btn-secondary {
+        border: 2px solid currentColor;
+    }
+
+    .validation-info {
+        border-left-width: 4px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .form-container {
+        animation: none;
+    }
+
+    .form-group input,
+    .btn,
+    .btn-secondary {
+        transition: none;
+    }
+
+    .error,
+    .success {
+        animation: none;
+    }
+
+    .form-group input.validating {
+        animation: none;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .form-container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        background: white;
+        max-width: none;
+        margin: 0;
+    }
+
+    .form-container::before {
+        display: none;
+    }
+
+    .btn,
+    .btn-secondary {
+        display: none !important;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        border: 1px solid #ccc;
+        background: white;
+    }
+
+    .validation-info {
+        background: white;
+        border: 1px solid #ccc;
+    }
+}

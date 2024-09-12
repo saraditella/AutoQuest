@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+         version="6.0">
+
+    <!-- Nome dell'applicazione (visibile in alcuni application server) -->
+    <display-name>AutoQuest</display-name>
+    <description>Sistema di gestione e confronto automobili con area amministrativa</description>
+
+    <!--
+    ========================================
+    PAGINE DI BENVENUTO
+    ========================================
+    File serviti automaticamente quando l'utente visita il root (/)
+    Il server cerca i file nell'ordine specificato
+    -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--
+    ========================================
+    CONFIGURAZIONE SESSIONI
+    ========================================
+    Impostazioni globali per la gestione delle sessioni utente
+    -->
+    <session-config>
+        <!-- Timeout sessione: 60 minuti di inattività -->
+        <session-timeout>60</session-timeout>
+    </session-config>
+
+    <!--
+    ========================================
+    CONFIGURAZIONE FILTRI
+    ========================================
+    ORDINE CRITICO: i filtri vengono eseguiti nell'ordine definito qui
+    -->
+
+    <!--
+    FILTRO 1: ENCODING (DEVE ESSERE IL PRIMO)
+    Imposta UTF-8 per tutte le richieste/risposte
+    -->
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>controller.filter.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <!-- Mapping per tutte le URL -->
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!--
+    FILTRO 2: AUTENTICAZIONE
+    Protegge le pagine che richiedono login
+    (AdminFilter eredita questa protezione per /admin/*)
+    -->
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>controller.filter.AuthFilter</filter-class>
+    </filter>
+
+    <!-- Mapping per pagine che richiedono autenticazione -->
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/area-utente</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/garage</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/confronto-servlet</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/salva-garage</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/rimuovi-garage</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/acquista-servlet</url-pattern>
+    </filter-mapping>
+
+    <!--
+    FILTRO 3: ADMIN
+    Protegge l'area amministrativa (solo utenti ADMIN)
+    Usa @WebFilter
+    -->
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>controller.filter.AdminFilter</filter-class>
+    </filter>
+
+    <!-- Mapping per area amministrativa -->
+    <filter-mapping>
+        <filter-name>AdminFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+    <!--
+    ========================================
+    PARAMETRI CONTESTO APPLICAZIONE
+    ========================================
+    Disponibili a livello globale tramite ServletContext
+    -->
+    <context-param>
+        <param-name>app-name</param-name>
+        <param-value>AutoQuest</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>app-version</param-name>
+        <param-value>1.0.0</param-value>
+    </context-param>
+
+    <!-- Configurazione ambiente -->
+    <context-param>
+        <param-name>environment</param-name>
+        <param-value>development</param-value>
+    </context-param>
+
+    <!-- Configurazione debug -->
+    <context-param>
+        <param-name>debug-mode</param-name>
+        <param-value>true</param-value>
+    </context-param>
+
+    <!--
+    ========================================
+    CONFIGURAZIONE MIME TYPES
+    ========================================
+    Assicura che il server invii i Content-Type corretti
+    -->
+
+    <!-- JavaScript -->
+    <mime-mapping>
+        <extension>js</extension>
+        <mime-type>application/javascript</mime-type>
+    </mime-mapping>
+
+    <!-- CSS -->
+    <mime-mapping>
+        <extension>css</extension>
+        <mime-type>text/css</mime-type>
+    </mime-mapping>
+
+    <!-- JSON -->
+    <mime-mapping>
+        <extension>json</extension>
+        <mime-type>application/json</mime-type>
+    </mime-mapping>
+
+    <!-- Immagini -->
+    <mime-mapping>
+        <extension>png</extension>
+        <mime-type>image/png</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>jpg</extension>
+        <mime-type>image/jpeg</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>jpeg</extension>
+        <mime-type>image/jpeg</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>gif</extension>
+        <mime-type>image/gif</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>svg</extension>
+        <mime-type>image/svg+xml</mime-type>
+    </mime-mapping>
+
+    <!-- Font -->
+    <mime-mapping>
+        <extension>woff</extension>
+        <mime-type>font/woff</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>woff2</extension>
+        <mime-type>font/woff2</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>ttf</extension>
+        <mime-type>font/ttf</mime-type>
+    </mime-mapping>
+
+    <!--
+    ========================================
+    CONFIGURAZIONI SICUREZZA AGGIUNTIVE
+    ========================================
+    -->
+
+    <!--
+    Security constraints per proteggere directory sensibili
+    Blocca accesso diretto a WEB-INF, META-INF, file .class, etc.
+    -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Areas</web-resource-name>
+            <url-pattern>/WEB-INF/*</url-pattern>
+            <url-pattern>/META-INF/*</url-pattern>
+            <url-pattern>*.class</url-pattern>
+            <url-pattern>*.properties</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <!-- Nessun ruolo autorizzato = accesso negato a tutti -->
+        </auth-constraint>
+    </security-constraint>
+
+    <!--
+    ========================================
+    CONFIGURAZIONI JSP
+    ========================================
+    -->
+
+</web-app>
+
+        <!--
+        ========================================
+        NOTE TECNICHE IMPORTANTI:
+        ========================================
+
+        1. ORDINE FILTRI:
+           - EncodingFilter viene eseguito per PRIMO (fondamentale)
+           - AuthFilter e AdminFilter seguono l'ordine delle @WebFilter
+           - Per controllo totale, dichiara tutti i filtri in web.xml
+
+        2. SICUREZZA PRODUZIONE:
+           - Imposta <secure>true</secure> per HTTPS
+           - Cambia <scripting-invalid>true</scripting-invalid>
+           - Considera timeout sessione più breve (es. 30 min)
+           - Imposta environment="production"
+
+        3. PERFORMANCE:
+           - I MIME types aiutano il caching del browser
+           - HttpOnly sui cookie previene attacchi XSS
+           - SameSite=Lax protegge da CSRF base
+
+        4. ACCESSO AI PARAMETRI NEL CODICE:
+           - ServletContext context = getServletContext();
+           - String appName = context.getInitParameter("app-name");
+           - String version = context.getInitParameter("app-version");
+           - boolean debug = Boolean.parseBoolean(context.getInitParameter("debug-mode"));
+
+        -->
